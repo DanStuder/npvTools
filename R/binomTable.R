@@ -1,6 +1,6 @@
 #' Binomialverteilungstabelle
 #' 
-#' Erstellt eine Binomialverteilungstabelle basierend auf der Stichprobengrösse und der Wahrscheinlichkeit Pi
+#' Erstellt eine Binomialverteilungstabelle basierend auf der Stichprobengroesse und der Wahrscheinlichkeit Pi
 #' 
 #' @param n Stichprobengroesse
 #' @param probability Wahrscheinlichkeit des Ereignisses
@@ -8,7 +8,7 @@
 #' @export 
 
 binomTable <- function(n, probability) {
-  options("scipen"=4)
+  options("scipen" = 4)
   col_1 <- c(probability, 0:n, "")
   
   left = NULL
