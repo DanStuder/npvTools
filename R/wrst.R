@@ -2,8 +2,8 @@
 #' 
 #' Berechnet die exakte Verteilung im Wilcoxon Rangsummen-Test
 #' 
-#' @param n1 
-#' @param n2
+#' @param n1 n1
+#' @param n2 n2
 #' @return Originalrang-Kombinationen und Verteilungstabelle
 #' @export
 

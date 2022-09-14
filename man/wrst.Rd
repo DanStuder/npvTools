@@ -7,7 +7,9 @@
 wrst(n1, n2)
 }
 \arguments{
-\item{n1}{}
+\item{n1}{n1}
+
+\item{n2}{n2}
 }
 \value{
 Originalrang-Kombinationen und Verteilungstabelle

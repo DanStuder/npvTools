@@ -15,5 +15,5 @@ binomTable(n, probability)
 Binomialverteilungstabelle
 }
 \description{
-Erstellt eine Binomialverteilungstabelle basierend auf der Stichprobengrösse und der Wahrscheinlichkeit Pi
+Erstellt eine Binomialverteilungstabelle basierend auf der Stichprobengroesse und der Wahrscheinlichkeit Pi
 }
