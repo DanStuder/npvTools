@@ -51,7 +51,8 @@ chi.plot <- function(chi, df, x, xlab = (x/15), ylab = -0.001) {
     labs(x = 'Chi-Quadrat', 
          y = 'p') +
     theme_minimal() +
-    theme(legend.position = "bottom")
+    theme(legend.position = "bottom",
+          axis.title.y = element_text(angle = 0, vjust = 0.5))
   
   plot(plot.test)
 }
