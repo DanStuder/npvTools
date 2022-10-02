@@ -49,7 +49,7 @@ chi.plot <- function(chi, df, x, xlab = (x/15), ylab = -0.001) {
              label = paste0('Chi = ', round(chi,3))) +
     
     labs(x = 'Chi-Quadrat', 
-         y = 'Dichte',  
+         y = 'p',  
          title = 'Chi-Quadrat Verteilung') +
     theme_minimal() +
     theme(legend.position = "bottom")
