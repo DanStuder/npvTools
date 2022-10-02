@@ -22,7 +22,7 @@ chi.plot <- function(chi, df, x, xlab = (x/15), ylab = -0.001) {
   range = seq(0,x,by = 0.01)
   dist = dchisq(x = range,
                 df = df)
-  H0 = if_else(range <= qchisq(p = 1 - alpha, 
+  H0 = dplyr::if_else(range <= qchisq(p = 1 - alpha, 
                                df = df, 
                                lower.tail = TRUE),
                'Beibehalten', 'Verwerfen')
@@ -49,8 +49,7 @@ chi.plot <- function(chi, df, x, xlab = (x/15), ylab = -0.001) {
              label = paste0('Chi = ', round(chi,3))) +
     
     labs(x = 'Chi-Quadrat', 
-         y = 'p',  
-         title = 'Chi-Quadrat Verteilung') +
+         y = 'p') +
     theme_minimal() +
     theme(legend.position = "bottom")
   
