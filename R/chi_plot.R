@@ -15,7 +15,7 @@
 
 # Based on http://rstudio-pubs-static.s3.amazonaws.com/511113_1df8cae98e264fe3ae677db9fd51150f.html
 
-chi.plot <- function(chi, df, x, xlab = chi + (x/15), ylab = -0.001) {
+chi.plot <- function(chi, df, x, xlab = (x/15), ylab = -0.001) {
   
   # define some objects
   alpha = 0.05

@@ -4,7 +4,7 @@
 \alias{chi.plot}
 \title{Chi-Quadrat-Verteilung Plot}
 \usage{
-chi.plot(chi, df, x, xlab = chi + (x/15), ylab = -0.001)
+chi.plot(chi, df, x, xlab = (x/15), ylab = -0.001)
 }
 \arguments{
 \item{chi}{Empirisches Chi-Quadrat}
