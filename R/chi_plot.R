@@ -5,6 +5,8 @@
 #' @param chi Empirisches Chi-Quadrat
 #' @param df Freiheitsgrade
 #' @param x Definiert Breite des Plots. Je höher df und chi, desto höher x
+#' @param xlab Move the annotation on the x axis
+#' @param ylab Move the annotation on the y axis
 #' @importFrom ggplot2 ggplot aes geom_area scale_color_manual geom_vline geom_text labs theme_minimal theme
 #' @importFrom stats dchisq qchisq
 #' @importFrom dplyr if_else
@@ -13,7 +15,7 @@
 
 # Based on http://rstudio-pubs-static.s3.amazonaws.com/511113_1df8cae98e264fe3ae677db9fd51150f.html
 
-chi.plot <- function(chi, df, x) {
+chi.plot <- function(chi, df, x, xlab = chi + (x/15), ylab = -0.001) {
   
   # define some objects
   alpha = 0.05
@@ -41,15 +43,16 @@ chi.plot <- function(chi, df, x) {
                        aesthetics = 'fill') +
     geom_vline(xintercept = chi, 
                size = 1) +
-    geom_text(aes(x = chi, 
-                  label = paste0('Chi = ', round(chi,3)), 
-                  y = mean(dist)), 
-              hjust = -0.1, 
-              vjust = -10) +
+    annotate("text",
+             x = chi + xlab,
+             y = 0 - ylab,
+             label = paste0('Chi = ', round(chi,3))) +
+    
     labs(x = 'Chi-Quadrat', 
          y = 'Dichte',  
          title = 'Chi-Quadrat Verteilung') +
     theme_minimal() +
     theme(legend.position = "bottom")
+  
   plot(plot.test)
 }
