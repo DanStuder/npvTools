@@ -7,7 +7,7 @@
 #' @param x Definiert Breite des Plots. Je höher df und chi, desto höher x
 #' @param xlab Move the annotation on the x axis
 #' @param ylab Move the annotation on the y axis
-#' @importFrom ggplot2 ggplot aes geom_area scale_color_manual geom_vline geom_text labs theme_minimal theme annotate
+#' @importFrom ggplot2 ggplot aes geom_area scale_color_manual geom_vline geom_text labs theme_minimal theme annotate element_text
 #' @importFrom stats dchisq qchisq
 #' @importFrom dplyr if_else
 #' @export
