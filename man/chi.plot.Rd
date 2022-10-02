@@ -4,7 +4,7 @@
 \alias{chi.plot}
 \title{Chi-Quadrat-Verteilung Plot}
 \usage{
-chi.plot(chi, df, x)
+chi.plot(chi, df, x, xlab = chi + (x/15), ylab = -0.001)
 }
 \arguments{
 \item{chi}{Empirisches Chi-Quadrat}
@@ -12,6 +12,10 @@ chi.plot(chi, df, x)
 \item{df}{Freiheitsgrade}
 
 \item{x}{Definiert Breite des Plots. Je höher df und chi, desto höher x}
+
+\item{xlab}{Move the annotation on the x axis}
+
+\item{ylab}{Move the annotation on the y axis}
 }
 \description{
 Plottet die Chi-Quadrat Verteilung
