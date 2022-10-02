@@ -5,6 +5,7 @@
 #' @param data Matrix mit den beobachteten Werten
 #' @param alternative Richtung der Hypothese
 #' @return x, n, zweiseitiger p-Wert und Interpreation
+#' @importFrom stats binom.test
 #' @export
 
 

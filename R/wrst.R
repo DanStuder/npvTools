@@ -5,6 +5,8 @@
 #' @param n1 n1
 #' @param n2 n2
 #' @return Originalrang-Kombinationen und Verteilungstabelle
+#' @importFrom graphics hist
+#' @importFrom utils combn
 #' @export
 
 

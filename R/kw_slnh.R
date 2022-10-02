@@ -5,6 +5,7 @@
 #' @param data Matrix mit den beobachteten Werten
 #' @param ... Platzhalter für Kontraste. Anzahl Kontraste muss = Stichprobengroesse sein.
 #' @return Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische L-Werte
+#' @importFrom tibble tibble
 #' @export
 
 

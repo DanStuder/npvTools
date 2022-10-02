@@ -4,6 +4,7 @@
 #' 
 #' @param data Matrix mit den beobachteten Werten
 #' @return n_p2, n_p•, Chi-Quadrat und df, kritischer Bereich, p-Wert und Interpretation
+#' @importFrom stats qchisq pchisq
 #' @export
 
 

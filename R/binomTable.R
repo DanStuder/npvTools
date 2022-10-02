@@ -5,6 +5,7 @@
 #' @param n Stichprobengroesse
 #' @param probability Wahrscheinlichkeit des Ereignisses
 #' @return Binomialverteilungstabelle
+#' @importFrom stats pbinom dbinom
 #' @export 
 
 binomTable <- function(n, probability) {

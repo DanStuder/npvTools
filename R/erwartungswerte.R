@@ -4,6 +4,7 @@
 #' 
 #' @param data Matrix mit den beobachteten Werten
 #' @return Matrix mit den erwarteten Werten
+#' @importFrom stats chisq.test
 #' @export
 
 
