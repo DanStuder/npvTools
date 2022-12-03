@@ -1,6 +1,6 @@
 Package: npvTools
 Title: Toolbox of nonparametric tests
-Version: 0.0.4
+Version: 0.1.0
 Authors@R: 
     person("Dan", "Studer", , "studer.dan@outlook.com", role = c("aut", "cre"))
 Description: This package containts some useful functions for calculating nonparametric tests in R.
