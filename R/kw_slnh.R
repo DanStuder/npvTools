@@ -71,7 +71,7 @@ kw_slnh <- function(data, ...) {
   
   # Output
   cat("     Kruskall-Wallis-Test - Spezielle Lagenullhypothesen", "\n")
-  cat(c("\n", "Rang-Matrix mit Gruppengroesse, Rangsumme und Kontrast", "\n", "\n"))
+  cat(c("\n", "Rang-Matrix mit Stichprobengroessen, Rangsumme und Kontrast", "\n", "\n"))
   print(data_output)
   cat(c("\n",
         "L:", L, "\n",
