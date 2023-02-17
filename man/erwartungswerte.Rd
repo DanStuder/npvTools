@@ -13,5 +13,5 @@ erwartungswerte(data)
 Matrix mit den erwarteten Werten
 }
 \description{
-Berechnet die Erwartungswerte im Chi-Quadrat-Test
+Berechnet die geschätzten erwarteten Häufigkeiten für eine gegebene Datenkonstellation basierend auf den Randsummen.
 }

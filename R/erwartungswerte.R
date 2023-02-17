@@ -1,6 +1,6 @@
 #' Erwartungswerte
 #' 
-#' Berechnet die Erwartungswerte im Chi-Quadrat-Test
+#' Berechnet die geschätzten erwarteten Häufigkeiten für eine gegebene Datenkonstellation basierend auf den Randsummen.
 #' 
 #' @param data Matrix mit den beobachteten Werten
 #' @return Matrix mit den erwarteten Werten

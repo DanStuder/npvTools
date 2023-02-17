@@ -1,9 +1,9 @@
 #' Punktwahrscheinlichkeit exakter 2xk-Tests
 #' 
-#' Berechnet die Punktwahrscheinlichkeit des exakten 2xk-Tests
+#' Berechnet die Randsummen und die Punktwahrscheinlichkeit des exakten 2xk-Tests.
 #' 
 #' @param data Matrix mit den beobachteten Werten
-#' @return Matrix mit den erwarteten Werten
+#' @return Matrix mit den Randsummen, exakte Punktwahrscheinlichkeit.
 #' @export
 
 
@@ -15,8 +15,7 @@ exact_2xk_pw <- function(data)  {
   n <- sum(row_sums)
   
   # Erstelle Matrix mit Input und Randsummen
-  
-  matrix <- rbind(data, col_sums)
+    matrix <- rbind(data, col_sums)
   matrix <- cbind(matrix, c(row_sums,n))
   
   # Benenne Reihen
@@ -40,7 +39,7 @@ exact_2xk_pw <- function(data)  {
     digits = 4)
   
   # Print Output
-  writeLines(c("\n", "          Punktwahrscheinlichkeit fuer den exakten kx2-Test"))
+  writeLines(c("\n", "          Punktwahrscheinlichkeit fuer den exakten 2xk-Test"))
   writeLines(c("\n", "Matrix:"))
   print(matrix)
   writeLines("\n")

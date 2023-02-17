@@ -1,33 +1,33 @@
 #' Wilcoxon Rangsummen-Test
 #' 
-#' Berechnet die exakte Verteilung im Wilcoxon Rangsummen-Test
+#' Berechnet die Originalrang-Kombinationen und die exakte Verteilung im Wilcoxon Rangsummen-Test.
 #' 
-#' @param n1 n1
-#' @param n2 n2
+#' @param s1 Werte der Stichprobe 1
+#' @param s2 Werte der Stichprobe 2
 #' @return Originalrang-Kombinationen und Verteilungstabelle
 #' @importFrom graphics hist
 #' @importFrom utils combn
 #' @export
 
 
-wrst <- function(n1, n2) {
+wrst <- function(s1, s2) {
   
   # Erstelle Matrix mit Stichprobenzugehoerigkeit und Wert
-  data <- matrix(c(rep(1, length(n1)), rep(2, length(n2)), n1, n2), ncol = 2)
+  data <- matrix(c(rep(1, length(s1)), rep(2, length(s2)), s1, s2), ncol = 2)
   # Matrix mit Stichprobenzugehoerigkeit und Rang
   data_ranked <- matrix(c(data[,1], rank(data[,2])), ncol = 2)
   
   # Berechne R1
   a = NULL # Definiert a als leeres Obekt
-  for(i in 1:length(n1)) {
-    a <- sum(c(a,data_ranked[i,2]))} # Erstellt Summe aus den Raengen von n1
-  n1_r <- a
+  for(i in 1:length(s1)) {
+    a <- sum(c(a,data_ranked[i,2]))} # Erstellt Summe aus den Raengen von s1
+  s1_r <- a
   
   # Berechne (Teil-)Stichprobengroessen
   n <- nrow(data)
-  n1 <- length(n1)
-  n2 <- length(n2)
-  n2_r <- n*(n+1)/2-a
+  s1 <- length(s1)
+  s2 <- length(s2)
+  s2_r <- n*(n+1)/2-a
   
   ## Entscheidet, ob Ties vorliegen.
   # Wenn nicht, wird der folgende Abschnitt ausgefuehrt.
@@ -35,8 +35,8 @@ wrst <- function(n1, n2) {
     
     #### Exakte Verteilung im Fall ohne Ties
     # Erstelle alle moeglichen Rangkombinationen
-    combinations <- combn(n,n1)
-    combinations_output <- matrix(combinations, ncol = n1, byrow = TRUE)
+    combinations <- combn(n,s1)
+    combinations_output <- matrix(combinations, ncol = s1, byrow = TRUE)
     R1 <- colSums(combinations)
     combinations_output <- cbind(combinations_output, R1)
     
@@ -58,11 +58,11 @@ wrst <- function(n1, n2) {
   } else {
     
     # Erstelle die Kombinationen und formatiere den Output
-    combinations <- combn(n,n1) # Erstelle die Kombinationen
+    combinations <- combn(n,s1) # Erstelle die Kombinationen
     
     
     # Erstelle eine Matrix aus den Kombinationen
-    combinations_output_original <- matrix(combinations, ncol = n1, byrow = TRUE) 
+    combinations_output_original <- matrix(combinations, ncol = s1, byrow = TRUE) 
     
     #### Exakte Verteilung im Fall mit Ties
     replace <- sort(data_ranked[,2]) # Vektor der Midranks
@@ -72,7 +72,7 @@ wrst <- function(n1, n2) {
     for (nt in 1:length(data[,2])) {
       combinations[combinations == nt] <- replace[nt]
       
-      combinations_output_mr <- matrix(combinations, ncol = n1, byrow = TRUE)
+      combinations_output_mr <- matrix(combinations, ncol = s1, byrow = TRUE)
     }
     
     # R1 und Frequenzen
@@ -122,8 +122,7 @@ wrst <- function(n1, n2) {
   
   # Dieser Part ab hier ist nicht identisch mit oben,
   # da die Verteilung nicht symmetrisch ist.
-  
-  r1_rev_freq <- rev(r1_freq)
+    r1_rev_freq <- rev(r1_freq)
   
   # Kumulierte Anzahl rechtsseitig
   kum = NULL
@@ -140,6 +139,9 @@ wrst <- function(n1, n2) {
   
   # Output-Tabelle
   result <- cbind(r1_unique, r1_freq, point_p, kum_l, kum_p_l, kum_r, kum_p_r)
+  colnames(result) = c("RS1", "Anz.", "Punkws.", 
+                       "Kum. l", "P(RS1 ≤ rs1)", 
+                       "Kum r.", "P(RS1 ≥ rs1)")
   
   cat(c("\n",
         "Verteilungstabelle:",

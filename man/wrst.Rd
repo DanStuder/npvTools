@@ -4,16 +4,16 @@
 \alias{wrst}
 \title{Wilcoxon Rangsummen-Test}
 \usage{
-wrst(n1, n2)
+wrst(s1, s2)
 }
 \arguments{
-\item{n1}{n1}
+\item{s1}{Werte der Stichprobe 1}
 
-\item{n2}{n2}
+\item{s2}{Werte der Stichprobe 2}
 }
 \value{
 Originalrang-Kombinationen und Verteilungstabelle
 }
 \description{
-Berechnet die exakte Verteilung im Wilcoxon Rangsummen-Test
+Berechnet die Originalrang-Kombinationen und die exakte Verteilung im Wilcoxon Rangsummen-Test.
 }

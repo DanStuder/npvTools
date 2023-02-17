@@ -5,7 +5,6 @@
 #' @param data Matrix mit den beobachteten Werten
 #' @param ... Platzhalter für Kontraste. Anzahl Kontraste muss = Stichprobengroesse sein.
 #' @return Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische L-Werte
-#' @importFrom tibble tibble
 #' @export
 
 
@@ -41,8 +40,8 @@ kw_slnh <- function(data, ...) {
   unique_values <- unique(sorted) # doppelte Werte raus
   numb_uniq <- tabulate(sorted) # tie-Vektor pro Wert
 
-  tie_vector <- numb_uniq[numb_uniq!=0] # bereinigter Tie-Vektor f?r tats?chlich vorkommende Werte
-  tabb <- tibble::tibble(unique_values, tie_vector) # grafische Darstellung
+  tie_vector <- numb_uniq[numb_uniq != 0] # bereinigter Tie-Vektor f?r tats?chlich vorkommende Werte
+  tabb <- data.frame(unique_values, tie_vector) # grafische Darstellung
 
   # Berechnung der Tie-Korrektur
   TK <- round(1-(sum((tie_vector^3)-tie_vector)/((n^3)-n)), digits = 4)
