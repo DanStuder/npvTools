@@ -24,4 +24,7 @@ Asymptotischer Wilcoxon-Rangsummentest
 \examples{
 # Fall ohne Ties
 asy_wrst(n = 7, ni = 3, ri = 11)
+
+# Fall mit Ties
+asy_wrst(n = 7, ni = 3, ri = 11, t = 0.9107)
 }
