@@ -1,12 +1,20 @@
-#' McNemar-Test
+#' Exakter McNemar-Test
 #' 
-#' Funktion zur Berechnung des gerichteten exakten McNemar-Tests
+#' Funktion zur Berechnung des exakten McNemar-Tests.
 #' 
 #' @param data Matrix mit den beobachteten Werten
 #' @param alternative Richtung der Hypothese
 #' @return x, n, zweiseitiger p-Wert und Interpreation
 #' @importFrom stats binom.test
 #' @export
+#' @examples
+#' data <- matrix(c(6,20,10,64), ncol = 2)
+#' 
+#' # linksseitig gerichteter Test
+#' mcn_test(data, alternative = "less")
+#' 
+#' # zweiseitiger Test
+#' mcn_test(data, alternative = "two.sided")
 
 
 mcn_test <- function(data, alternative = c("less", "greater", "two.sided")) {
@@ -19,7 +27,7 @@ mcn_test <- function(data, alternative = c("less", "greater", "two.sided")) {
   right <- binom.test(mcn_x, mcn_n, 0.50, alternative = "greater")
   twosided <- binom.test(mcn_x, mcn_n, 0.50, alternative = "two.sided")
   
-  # Sagt f?r das Argument "alternative", welcher Wert ausgegeben werden soll je nach Input
+  # Sagt fuer das Argument "alternative", welcher Wert ausgegeben werden soll je nach Input
   pval <- switch(alternative,
                  less = left$p.value,
                  greater = right$p.value,
@@ -39,9 +47,9 @@ mcn_test <- function(data, alternative = c("less", "greater", "two.sided")) {
                   "Nullhypothese beibehalten, Pi(A) ist nicht kleiner als Pi(B)"
                 },
                 greater = if (pval <= 0.05) {
-                  "Nullhypothese verwerfen, Pi(A) ist gr?sser als Pi(B)"
+                  "Nullhypothese verwerfen, Pi(A) ist groesser als Pi(B)"
                 } else {
-                  "Nullhypothese beibehalten, Pi(A) ist nicht gr?sser als Pi(B)"
+                  "Nullhypothese beibehalten, Pi(A) ist nicht groesser als Pi(B)"
                 },
                 two.sided = if (pval <= 0.05) {
                   "Nullhypothese verwerfen, Pi(A) ist nicht gleich Pi(B)"

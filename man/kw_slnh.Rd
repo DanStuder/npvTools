@@ -2,7 +2,7 @@
 % Please edit documentation in R/kw_slnh.R
 \name{kw_slnh}
 \alias{kw_slnh}
-\title{Kruskal-Wallis-Test: Spezielle Lag-Nullhypothesen}
+\title{Kruskal-Wallis-Test: Spezielle Lage-Nullhypothesen}
 \usage{
 kw_slnh(data, ...)
 }
@@ -16,4 +16,13 @@ Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische 
 }
 \description{
 Experimentelle Funktion zur Berechnung der speziellen Lage-Nullhypothesen des Kruskal-Wallis-Tests basierend auf Kontrasten.
+}
+\examples{
+data <- matrix(c(5,8,7, 4,4,NA, 2,5,NA, 6,9,6), nrow = 4, ncol = 3, byrow = T)
+
+# Gruppengleichheitshypothese
+kw_slnh(data, 1, -1, 0, 0)
+
+# Lineare Interaktion
+kw_slnh(data, 1, -1, -1, 1)
 }

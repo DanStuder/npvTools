@@ -6,11 +6,14 @@
 #' @return n_p2, n_p•, Chi-Quadrat und df, kritischer Bereich, p-Wert und Interpretation
 #' @importFrom stats qchisq pchisq
 #' @export
+#' @examples
+#' data = matrix(c(8,5,3,2, 2,5,7,8), ncol = 2)
+#' peachi(data)
 
 
-peachi_test <- function(data) {
+peachi <- function(data) {
   # Titel
-  cat(c("\n", "     Chi-Quadrat Test fuer unbestimmte Anzahl Kategorien", "\n", "\n"))
+  cat(c("\n", "     Pearson Chi-Quadrat Test", "\n", "\n"))
   # Berechne a und n
   n <- sum(data[ , ])
   a <- sum(data[ ,2])
@@ -19,9 +22,8 @@ peachi_test <- function(data) {
   # Fuer jeden Wert i im Bereich von 1 bis Anzahl Zeilen, 
   # schreibe "ai=" und den Wert aus Zeile i Spalte 2
   for (i in 1:nrow(data)) {
-    cat(c(paste0("a",i), "=", data[i, 2], "\n"))
+    cat(paste0("a",i, " = ", data[i, 2], "\n"))
   }
-  
   
   # Schreibe a = und gib Wert a aus, mache zwei Zeilenumbrueche
   cat(c(" a =", a, "\n", "\n"))
@@ -29,7 +31,7 @@ peachi_test <- function(data) {
   # Fuer jeden Wert k im Bereich von 1 bis Anzahl Zeilen, 
   # schreibe nk und die Summe aus den Werten der Zeile k
   for (k in 1:nrow(data)) {
-    cat(c("n",k, "=", sum(data[k,]), "\n"))
+    cat(paste0("n",k, " = ", sum(data[k,]), "\n"))
   }
   
   # Schreibe n= n und mache zwei Zeilenumbrueche
@@ -62,7 +64,7 @@ peachi_test <- function(data) {
   
   if (chi > chi_krit) {
     writeLines(c("Interpretation: Empirisches Chi-Quadrat liegt im kritischen Bereich. 
-                Verwerfe die Nullhypothese zugunsten der Alternativhypothese."))
+                Die Nullhypothese wird verworfen zugunsten der Alternativhypothese."))
   } else {
     writeLines(c("Interpretation: Empirisches Chi-Quadrat liegt nicht im kritischen Bereich. 
                 Die Nullhypothese wird beibehalten."))

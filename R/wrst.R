@@ -1,6 +1,7 @@
 #' Wilcoxon Rangsummen-Test
 #' 
 #' Berechnet die Originalrang-Kombinationen und die exakte Verteilung im Wilcoxon Rangsummen-Test.
+#' Die Funktion dient primär zur Unterstützung/Kontrolle bei der Berechnung von Hand.
 #' 
 #' @param s1 Werte der Stichprobe 1
 #' @param s2 Werte der Stichprobe 2
@@ -8,9 +9,13 @@
 #' @importFrom graphics hist
 #' @importFrom utils combn
 #' @export
+#' @examples 
+#' s1 <- c(1,4,9)
+#' s2 <- c(8,3,6,7)
+#' wrsTable(s1, s2)
 
 
-wrst <- function(s1, s2) {
+wrsTable <- function(s1, s2) {
   
   # Erstelle Matrix mit Stichprobenzugehoerigkeit und Wert
   data <- matrix(c(rep(1, length(s1)), rep(2, length(s2)), s1, s2), ncol = 2)

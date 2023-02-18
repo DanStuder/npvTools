@@ -1,4 +1,4 @@
-#' Kruskal-Wallis-Test: Spezielle Lag-Nullhypothesen
+#' Kruskal-Wallis-Test: Spezielle Lage-Nullhypothesen
 #' 
 #' Experimentelle Funktion zur Berechnung der speziellen Lage-Nullhypothesen des Kruskal-Wallis-Tests basierend auf Kontrasten.
 #' 
@@ -6,6 +6,15 @@
 #' @param ... Platzhalter für Kontraste. Anzahl Kontraste muss = Stichprobengroesse sein.
 #' @return Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische L-Werte
 #' @export
+#' @examples
+#' data <- matrix(c(5,8,7, 4,4,NA, 2,5,NA, 6,9,6), nrow = 4, ncol = 3, byrow = T)
+#' 
+#' # Gruppengleichheitshypothese
+#' kw_slnh(data, 1, -1, 0, 0)
+#' 
+#' # Lineare Interaktion
+#' kw_slnh(data, 1, -1, -1, 1)
+
 
 
 kw_slnh <- function(data, ...) {
@@ -40,7 +49,7 @@ kw_slnh <- function(data, ...) {
   unique_values <- unique(sorted) # doppelte Werte raus
   numb_uniq <- tabulate(sorted) # tie-Vektor pro Wert
 
-  tie_vector <- numb_uniq[numb_uniq != 0] # bereinigter Tie-Vektor f?r tats?chlich vorkommende Werte
+  tie_vector <- numb_uniq[numb_uniq != 0] # bereinigter Tie-Vektor fuer tatsaechlich vorkommende Werte
   tabb <- data.frame(unique_values, tie_vector) # grafische Darstellung
 
   # Berechnung der Tie-Korrektur
