@@ -1,11 +1,13 @@
-#' Asymptotischer Vorzeichen-Rangtest
+#' Asymptotischer Vorzeichentest
 #' 
-#' Einfache Funktion zur Berechnung des asymptotischen Vorzeichen-Rangtests
+#' Einfache Funktion zur Berechnung des asymptotischen Vorzeichentests
 #' 
 #' @param n Stichprobengroesse
 #' @param alternative Richtung der Hypothese
 #' @return Kritischer Wert
 #' @export
+#' @examples
+#' asy_vzt(n = 115, alternative = "two.sided")
 
 
 

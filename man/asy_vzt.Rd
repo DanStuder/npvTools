@@ -2,7 +2,7 @@
 % Please edit documentation in R/asy_vzt.R
 \name{asy_vzt}
 \alias{asy_vzt}
-\title{Asymptotischer Vorzeichen-Rangtest}
+\title{Asymptotischer Vorzeichentest}
 \usage{
 asy_vzt(n, alternative = c("less", "two.sided", "greater"))
 }
@@ -15,5 +15,8 @@ asy_vzt(n, alternative = c("less", "two.sided", "greater"))
 Kritischer Wert
 }
 \description{
-Einfache Funktion zur Berechnung des asymptotischen Vorzeichen-Rangtests
+Einfache Funktion zur Berechnung des asymptotischen Vorzeichentests
+}
+\examples{
+asy_vzt(n = 115, alternative = "two.sided")
 }
