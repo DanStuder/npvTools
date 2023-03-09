@@ -2,7 +2,7 @@
 #' 
 #' Experimentelle Funktion zur Berechnung der speziellen Lage-Nullhypothesen des Kruskal-Wallis-Tests basierend auf Kontrasten.
 #' 
-#' @param data Matrix mit den beobachteten Werten
+#' @param data Matrix mit den beobachteten Werten, wobei jede Reihe eine Gruppe ist.
 #' @param ... Platzhalter für Kontraste. Anzahl Kontraste muss = Stichprobengroesse sein.
 #' @return Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische L-Werte
 #' @export
