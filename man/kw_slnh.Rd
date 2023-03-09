@@ -18,7 +18,7 @@ Teststatistik L, Tiekorrektur, Erwartungswert, empirischer z-Wert und kritische 
 Experimentelle Funktion zur Berechnung der speziellen Lage-Nullhypothesen des Kruskal-Wallis-Tests basierend auf Kontrasten.
 }
 \examples{
-data <- matrix(c(5,8,7, 4,4,NA, 2,5,NA, 6,9,6), nrow = 4, ncol = 3, byrow = T)
+data <- matrix(c(5,8,7, 4,4,NA, 2,5,NA, 6,9,6), nrow = 4, ncol = 3, byrow = TRUE)
 
 # Gruppengleichheitshypothese
 kw_slnh(data, 1, -1, 0, 0)

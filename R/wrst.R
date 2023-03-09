@@ -59,7 +59,7 @@ wrsTable <- function(s1, s2) {
     
     
     # Beim Vorliegen von Ties wird der obige Abschnitt uebersprungen
-    # Stattdessen wird der Folgende Abschnitt ausgefuehrt
+    # Stattdessen wird der folgende Abschnitt ausgefuehrt
   } else {
     
     # Erstelle die Kombinationen und formatiere den Output
@@ -144,9 +144,9 @@ wrsTable <- function(s1, s2) {
   
   # Output-Tabelle
   result <- cbind(r1_unique, r1_freq, point_p, kum_l, kum_p_l, kum_r, kum_p_r)
-  colnames(result) = c("RS1", "Anz.", "Punkws.", 
-                       "Kum. l", "P(RS1 ≤ rs1)", 
-                       "Kum r.", "P(RS1 ≥ rs1)")
+  colnames(result) = c("RS1", "Anz.", "Punktws.", 
+                       "Kum. l", "P(RS1 <= rs1)", 
+                       "Kum r.", "P(RS1 >= rs1)")
   
   cat(c("\n",
         "Verteilungstabelle:",
