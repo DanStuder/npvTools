@@ -53,16 +53,20 @@ kw_slnh <- function(data, ...) {
   tabb <- data.frame(unique_values, tie_vector) # grafische Darstellung
 
   # Berechnung der Tie-Korrektur
-  TK <- round(1-(sum((tie_vector^3)-tie_vector)/((n^3)-n)), digits = 4)
+  TK <- 1-(sum((tie_vector^3)-tie_vector)/((n^3)-n))
+  TK_round <- round(TK, digits = 4)
   
   # Berechnung der Teststatistik
   L <- sum(ci*Ri)
   
   # Berechnung der Varianz
-  VL <- round(((n+1)*TK/12)*(n*(sum(ni*(ci^2))) - ((sum(ni*ci))^2)), digits = 4)
+  VL <- ((n+1)*TK/12)*(n*(sum(ni*(ci^2))) - ((sum(ni*ci))^2))
+  VL_round <- round(VL, digits = 4)
   
+  # Berechnung des Erwartungswerts
+  EL <- (n+1)*sum(ni*ci)/2
+  EL_round <- round(EL, digits = 4)
   
-  EL <- round((n+1)*sum(ni*ci))/2
   # Berechnung des z-Werts
   z <- (L-EL)/sqrt(VL)
   z <- round(z, digits = 4)
@@ -83,9 +87,9 @@ kw_slnh <- function(data, ...) {
   print(data_output)
   cat(c("\n",
         "L:", L, "\n",
-        "Tie-Korrektur", TK, "\n",
-        "Varianz:", VL, "\n",
-        "Erwartungswert:",EL, "\n",
+        "Tie-Korrektur", TK_round, "\n",
+        "Varianz:", VL_round, "\n",
+        "Erwartungswert:",EL_round, "\n",
         "z-Wert:", z, "\n",
         "Kritische L-Werte:", "\n",
         "     Zweiseitig:", lkrit.z, "\n",
