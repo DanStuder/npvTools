@@ -7,7 +7,7 @@
 kw_slnh(data, ...)
 }
 \arguments{
-\item{data}{Matrix mit den beobachteten Werten}
+\item{data}{Matrix mit den beobachteten Werten, wobei jede Reihe eine Gruppe ist.}
 
 \item{...}{Platzhalter für Kontraste. Anzahl Kontraste muss = Stichprobengroesse sein.}
 }
