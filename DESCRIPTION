@@ -1,11 +1,11 @@
 Package: npvTools
 Title: Toolbox of nonparametric tests
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: 
     person("Dan", "Studer", , "studer.dan@outlook.com", role = c("aut", "cre"))
 Description: This package containts some useful functions for calculating nonparametric tests in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
-Imports: coin, dplyr, graphics, stats, utils
+RoxygenNote: 7.3.3
+Imports: coin, dplyr, graphics, purrr, stats, tibble, utils
